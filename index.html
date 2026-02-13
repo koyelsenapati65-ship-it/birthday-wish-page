@@ -76,7 +76,7 @@ h1{
 .candle{
     width:20px;
     height:60px;
-    background:red;
+    background:white;
     margin:0 auto;
     position:relative;
 }
@@ -127,10 +127,10 @@ h1{
 
 <!-- MAIN PAGE -->
 <div id="mainPage">
-    <h1>🎉 Happy Birthday RONI 🎂</h1>
+    <h1>🎉 Happy Birthday DEVAR JI 🎂</h1>
 
     <div class="photo-box">
-        <img src="photo5.jpg.jpeg">
+        <img src="photo5.jpg" alt="RONI Photo">
     </div>
 
     <div class="cake">
@@ -141,9 +141,13 @@ h1{
 
     <button onclick="lightCandle()">Light Candle 🕯️</button>
     <button onclick="celebrate()">Celebrate 🎊</button>
+    <button onclick="playMusic()">Play Music 🎵</button>
 
     <h2 id="wish" style="display:none;">💖 May all your dreams come true! 💖</h2>
 </div>
+
+<!-- 🎵 Birthday Music -->
+<audio id="music" src="https://www.bensound.com/bensound-music/bensound-happyrock.mp3"></audio>
 
 <script>
 function login(){
@@ -165,8 +169,13 @@ function lightCandle(){
     document.getElementById("flame").style.display="block";
 }
 
+function playMusic(){
+    document.getElementById("music").play();
+}
+
 function celebrate(){
     document.getElementById("wish").style.display="block";
+    document.getElementById("music").play();
 
     for(let i=0;i<40;i++){
         let confetti=document.createElement("div");
@@ -181,5 +190,3 @@ function celebrate(){
 
 </body>
 </html>
-
-
