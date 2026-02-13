@@ -15,7 +15,7 @@ body{
     overflow:hidden;
 }
 
-/* LOGIN PAGE */
+/* LOGIN */
 #loginPage{
     margin-top:120px;
 }
@@ -37,24 +37,20 @@ button{
     cursor:pointer;
 }
 
-/* MAIN PAGE */
+/* MAIN */
 #mainPage{
     display:none;
 }
 
 h1{
-    font-size:50px;
-    margin-top:40px;
+    font-size:45px;
+    margin-top:30px;
 }
 
-/* PHOTO STYLE */
-.photo-box{
-    margin-top:20px;
-}
-
+/* PHOTO */
 .photo-box img{
-    width:220px;
-    height:220px;
+    width:200px;
+    height:200px;
     object-fit:cover;
     border-radius:50%;
     border:6px solid white;
@@ -67,36 +63,32 @@ h1{
     to{ transform:scale(1.1); }
 }
 
-/* CANDLE */
+/* CAKE */
 .cake{
-    margin-top:30px;
+    width:200px;
+    height:120px;
+    background:#ff69b4;
+    margin:30px auto;
+    border-radius:10px;
     position:relative;
+    transition:1s;
 }
 
-.candle{
-    width:20px;
-    height:60px;
-    background:white;
-    margin:0 auto;
-    position:relative;
-}
-
-.flame{
-    width:20px;
-    height:20px;
-    background:orange;
-    border-radius:50%;
+.cake::before{
+    content:"";
+    width:200px;
+    height:30px;
+    background:#fff;
     position:absolute;
-    top:-25px;
+    top:-30px;
     left:0;
-    display:none;
-    box-shadow:0 0 20px yellow;
-    animation:flicker 0.3s infinite alternate;
+    border-radius:10px 10px 0 0;
 }
 
-@keyframes flicker{
-    from{ transform:scale(1); }
-    to{ transform:scale(1.2); }
+/* CUT EFFECT */
+.cut{
+    transform:rotateX(60deg) scale(0.8);
+    opacity:0.7;
 }
 
 /* CONFETTI */
@@ -127,26 +119,20 @@ h1{
 
 <!-- MAIN PAGE -->
 <div id="mainPage">
-    <h1>🎉 Happy Birthday DEVAR JI 🎂</h1>
+    <h1>🎉 Happy Birthday RONI 🎂</h1>
 
     <div class="photo-box">
-        <img src="photo5.jpg.jpeg">
+        <img src="photo5.jpg.jpge">
     </div>
 
-    <div class="cake">
-        <div class="candle">
-            <div class="flame" id="flame"></div>
-        </div>
-    </div>
+    <div class="cake" id="cake"></div>
 
-    <button onclick="lightCandle()">Light Candle 🕯️</button>
-    <button onclick="celebrate()">Celebrate 🎊</button>
-    <button onclick="playMusic()">Play Music 🎵</button>
+    <button onclick="cutCake()">🎂 Cut Cake</button>
 
-    <h2 id="wish" style="display:none;">💖 May all your dreams come true! 💖</h2>
+    <h2 id="wish" style="display:none;">💖 Happy Birthday RONI 💖</h2>
 </div>
 
-<!-- 🎵 Birthday Music -->
+<!-- 🎵 Birthday Song -->
 <audio id="music" src="https://www.bensound.com/bensound-music/bensound-happyrock.mp3"></audio>
 
 <script>
@@ -165,19 +151,12 @@ function cancelLogin(){
     alert("Login Cancelled ❌");
 }
 
-function lightCandle(){
-    document.getElementById("flame").style.display="block";
-}
-
-function playMusic(){
-    document.getElementById("music").play();
-}
-
-function celebrate(){
+function cutCake(){
+    document.getElementById("cake").classList.add("cut");
     document.getElementById("wish").style.display="block";
     document.getElementById("music").play();
 
-    for(let i=0;i<40;i++){
+    for(let i=0;i<50;i++){
         let confetti=document.createElement("div");
         confetti.className="confetti";
         confetti.style.left=Math.random()*100+"vw";
@@ -190,5 +169,3 @@ function celebrate(){
 
 </body>
 </html>
-
-
