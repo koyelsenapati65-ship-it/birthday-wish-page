@@ -35,6 +35,11 @@ button{
     border-radius:25px;
     font-size:16px;
     cursor:pointer;
+    background:white;
+}
+
+button:hover{
+    background:yellow;
 }
 
 /* MAIN */
@@ -95,6 +100,34 @@ h1{
     top:50px;
 }
 
+/* CANDLE */
+.candle{
+    width:10px;
+    height:40px;
+    background:white;
+    position:absolute;
+    top:-40px;
+    left:70px;
+}
+
+.flame{
+    width:15px;
+    height:15px;
+    background:orange;
+    border-radius:50%;
+    position:absolute;
+    top:-20px;
+    left:-2px;
+    display:none;
+    box-shadow:0 0 20px yellow;
+    animation:flicker 0.3s infinite alternate;
+}
+
+@keyframes flicker{
+    from{ transform:scale(1); }
+    to{ transform:scale(1.2); }
+}
+
 /* CUT EFFECT */
 .cut{
     animation:none;
@@ -119,35 +152,40 @@ h1{
 
 <body>
 
-<!-- LOGIN -->
+<!-- LOGIN PAGE -->
 <div id="loginPage">
     <h2>🎂 Birthday Login</h2>
     <input type="text" id="name" placeholder="Enter Name">
     <br>
     <button onclick="login()">Login</button>
+    <button onclick="cancelLogin()">Cancel</button>
 </div>
 
-<!-- MAIN -->
+<!-- MAIN PAGE -->
 <div id="mainPage">
     <h1>🎉 Happy Birthday Vai 🎂</h1>
 
     <div class="photo-box">
-        <img src="photo5.jpg.jpeg">
+        <img src="photo5.jpg.jpge">
     </div>
 
     <div class="scene">
         <div class="cake3d" id="cake">
             <div class="layer top"></div>
             <div class="layer bottom"></div>
+            <div class="candle">
+                <div class="flame" id="flame"></div>
+            </div>
         </div>
     </div>
 
+    <button onclick="lightCandle()">🕯️ Light Candle</button>
     <button onclick="cutCake()">🎂 Cut Cake</button>
 
     <h2 id="wish" style="display:none;">💖 Happy Birthday Vai 💖</h2>
 </div>
 
-<!-- Birthday Song -->
+<!-- 🎵 Birthday Song -->
 <audio id="music" src="https://www.bensound.com/bensound-music/bensound-happyrock.mp3"></audio>
 
 <script>
@@ -162,12 +200,20 @@ function login(){
     }
 }
 
+function cancelLogin(){
+    alert("Login Cancelled ❌");
+}
+
+function lightCandle(){
+    document.getElementById("flame").style.display="block";
+}
+
 function cutCake(){
     document.getElementById("cake").classList.add("cut");
     document.getElementById("wish").style.display="block";
     document.getElementById("music").play();
 
-    for(let i=0;i<60;i++){
+    for(let i=0;i<80;i++){
         let confetti=document.createElement("div");
         confetti.className="confetti";
         confetti.style.left=Math.random()*100+"vw";
@@ -180,4 +226,3 @@ function cutCake(){
 
 </body>
 </html>
-
