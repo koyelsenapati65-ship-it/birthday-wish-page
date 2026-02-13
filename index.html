@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Birthday Surprise 🎂</title>
+<title>Happy Birthday Vai 🎂</title>
 
 <style>
 body{
     margin:0;
     font-family:Arial, sans-serif;
     text-align:center;
-    background:#111;
+    background:#000;
     color:white;
     overflow:hidden;
 }
@@ -43,52 +43,63 @@ button{
 }
 
 h1{
-    font-size:45px;
-    margin-top:30px;
+    margin-top:20px;
 }
 
 /* PHOTO */
 .photo-box img{
-    width:200px;
-    height:200px;
+    width:180px;
+    height:180px;
     object-fit:cover;
     border-radius:50%;
-    border:6px solid white;
-    box-shadow:0 0 30px #fff, 0 0 60px pink;
-    animation:zoom 3s infinite alternate;
+    border:5px solid white;
+    box-shadow:0 0 25px pink;
 }
 
-@keyframes zoom{
-    from{ transform:scale(1); }
-    to{ transform:scale(1.1); }
-}
-
-/* CAKE */
-.cake{
+/* 3D CAKE */
+.scene{
     width:200px;
-    height:120px;
-    background:#ff69b4;
-    margin:30px auto;
-    border-radius:10px;
+    height:200px;
+    margin:40px auto;
+    perspective:800px;
+}
+
+.cake3d{
+    width:150px;
+    height:100px;
     position:relative;
-    transition:1s;
+    transform-style:preserve-3d;
+    animation:rotate 6s infinite linear;
 }
 
-.cake::before{
-    content:"";
-    width:200px;
-    height:30px;
-    background:#fff;
+@keyframes rotate{
+    from{ transform:rotateY(0deg); }
+    to{ transform:rotateY(360deg); }
+}
+
+.layer{
     position:absolute;
-    top:-30px;
+    width:150px;
+    height:50px;
+    background:#ff69b4;
+    border-radius:10px;
     left:0;
-    border-radius:10px 10px 0 0;
+}
+
+.layer.top{
+    top:0;
+    background:#fff;
+}
+
+.layer.bottom{
+    top:50px;
 }
 
 /* CUT EFFECT */
 .cut{
+    animation:none;
     transform:rotateX(60deg) scale(0.8);
-    opacity:0.7;
+    transition:1s;
 }
 
 /* CONFETTI */
@@ -108,31 +119,35 @@ h1{
 
 <body>
 
-<!-- LOGIN PAGE -->
+<!-- LOGIN -->
 <div id="loginPage">
     <h2>🎂 Birthday Login</h2>
     <input type="text" id="name" placeholder="Enter Name">
     <br>
     <button onclick="login()">Login</button>
-    <button onclick="cancelLogin()">Cancel</button>
 </div>
 
-<!-- MAIN PAGE -->
+<!-- MAIN -->
 <div id="mainPage">
-    <h1>🎉 Happy Birthday RONI 🎂</h1>
+    <h1>🎉 Happy Birthday Vai 🎂</h1>
 
     <div class="photo-box">
-        <img src="photo5.jpg.jpge">
+        <img src="photo5.jpg" alt="Photo">
     </div>
 
-    <div class="cake" id="cake"></div>
+    <div class="scene">
+        <div class="cake3d" id="cake">
+            <div class="layer top"></div>
+            <div class="layer bottom"></div>
+        </div>
+    </div>
 
     <button onclick="cutCake()">🎂 Cut Cake</button>
 
-    <h2 id="wish" style="display:none;">💖 Happy Birthday RONI 💖</h2>
+    <h2 id="wish" style="display:none;">💖 Happy Birthday Vai 💖</h2>
 </div>
 
-<!-- 🎵 Birthday Song -->
+<!-- Birthday Song -->
 <audio id="music" src="https://www.bensound.com/bensound-music/bensound-happyrock.mp3"></audio>
 
 <script>
@@ -143,12 +158,8 @@ function login(){
         document.getElementById("mainPage").style.display="block";
         document.body.style.background="linear-gradient(135deg,#ff0080,#ff8c00)";
     }else{
-        alert("Wrong Name! Try 'roni'");
+        alert("Enter correct name!");
     }
-}
-
-function cancelLogin(){
-    alert("Login Cancelled ❌");
 }
 
 function cutCake(){
@@ -156,7 +167,7 @@ function cutCake(){
     document.getElementById("wish").style.display="block";
     document.getElementById("music").play();
 
-    for(let i=0;i<50;i++){
+    for(let i=0;i<60;i++){
         let confetti=document.createElement("div");
         confetti.className="confetti";
         confetti.style.left=Math.random()*100+"vw";
