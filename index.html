@@ -1,1 +1,1546 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>RUDRA ❤️ KOYEL</title>
+
+<style>
+
+/* =========================
+   FONTS
+========================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;500;600;700&family=Noto+Serif+Bengali:wght@400;500;600&display=swap');
+
+
+/* =========================
+   BASIC
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    color:white;
+    overflow-x:hidden;
+}
+
+
+/* =========================
+   PINK + RED ANIMATED
+   BACKGROUND
+========================= */
+
+#loginPage,
+#mainPage{
+
+    background:
+        radial-gradient(
+            circle at 10% 15%,
+            #ffb6d0 0%,
+            transparent 28%
+        ),
+
+        radial-gradient(
+            circle at 90% 20%,
+            #ff1744 0%,
+            transparent 32%
+        ),
+
+        radial-gradient(
+            circle at 20% 90%,
+            #c2185b 0%,
+            transparent 38%
+        ),
+
+        radial-gradient(
+            circle at 90% 90%,
+            #ff80ab 0%,
+            transparent 35%
+        ),
+
+        linear-gradient(
+            135deg,
+            #65001f,
+            #a9003d,
+            #ff1744,
+            #e91e63,
+            #ff4081,
+            #7b002b
+        );
+
+    background-size:300% 300%;
+
+    animation:
+        romanticBackground
+        12s
+        ease-in-out
+        infinite;
+}
+
+
+@keyframes romanticBackground{
+
+    0%{
+        background-position:0% 50%;
+    }
+
+    25%{
+        background-position:50% 100%;
+    }
+
+    50%{
+        background-position:100% 50%;
+    }
+
+    75%{
+        background-position:50% 0%;
+    }
+
+    100%{
+        background-position:0% 50%;
+    }
+}
+
+
+/* =========================
+   LOGIN PAGE
+========================= */
+
+#loginPage{
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:20px;
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+
+.loginBox{
+
+    width:100%;
+
+    max-width:400px;
+
+    padding:40px 30px;
+
+    text-align:center;
+
+    background:
+        rgba(255,255,255,0.14);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.35);
+
+    backdrop-filter:blur(20px);
+
+    border-radius:30px;
+
+    box-shadow:
+        0 0 50px
+        rgba(255,0,80,0.45),
+
+        inset 0 0 30px
+        rgba(255,255,255,0.08);
+
+    position:relative;
+
+    z-index:10;
+}
+
+
+.loginHeart{
+
+    font-size:70px;
+
+    animation:
+        heartbeat
+        1.2s
+        infinite;
+
+    filter:
+        drop-shadow(
+            0 0 15px
+            #ff1744
+        );
+}
+
+
+.loginTitle{
+
+    font-family:
+        'Great Vibes',
+        cursive;
+
+    font-size:55px;
+
+    margin:10px 0;
+
+    color:white;
+
+    text-shadow:
+        0 0 10px #ff1744,
+        0 0 25px #ff1744,
+        0 0 45px #c2185b;
+}
+
+
+.loginText{
+
+    color:#ffe5ee;
+
+    margin-bottom:25px;
+
+    font-size:14px;
+}
+
+
+.input{
+
+    width:100%;
+
+    padding:15px;
+
+    margin:8px 0;
+
+    border:none;
+
+    outline:none;
+
+    border-radius:15px;
+
+    background:
+        rgba(255,255,255,0.16);
+
+    color:white;
+
+    text-align:center;
+
+    font-size:15px;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.2);
+}
+
+
+.input::placeholder{
+
+    color:#ffe1eb;
+}
+
+
+.loginButton{
+
+    width:100%;
+
+    padding:15px;
+
+    margin-top:15px;
+
+    border:none;
+
+    border-radius:15px;
+
+    background:
+        linear-gradient(
+            45deg,
+            #b0003a,
+            #ff1744,
+            #ff4081
+        );
+
+    color:white;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 8px 25px
+        rgba(255,0,80,0.5);
+
+    transition:0.3s;
+}
+
+
+.loginButton:hover{
+
+    transform:
+        translateY(-3px)
+        scale(1.02);
+
+    box-shadow:
+        0 12px 35px
+        rgba(255,0,80,0.7);
+}
+
+
+#error{
+
+    display:none;
+
+    color:#ffe1eb;
+
+    margin-top:15px;
+}
+
+
+/* =========================
+   MAIN PAGE
+========================= */
+
+#mainPage{
+
+    display:none;
+
+    min-height:100vh;
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+nav{
+
+    position:sticky;
+
+    top:0;
+
+    z-index:100;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:15px 25px;
+
+    background:
+        rgba(70,0,25,0.65);
+
+    backdrop-filter:blur(15px);
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,0.2);
+}
+
+
+.logo{
+
+    font-family:
+        'Great Vibes',
+        cursive;
+
+    font-size:35px;
+
+    color:white;
+
+    text-shadow:
+        0 0 10px #ff1744,
+        0 0 20px #ff4081;
+}
+
+
+.musicButton{
+
+    padding:10px 17px;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.5);
+
+    border-radius:25px;
+
+    background:
+        rgba(255,255,255,0.12);
+
+    color:white;
+
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+
+.musicButton:hover{
+
+    background:
+        rgba(255,255,255,0.25);
+
+    transform:scale(1.05);
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+
+    min-height:90vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    padding:30px 20px;
+
+    position:relative;
+
+    z-index:5;
+}
+
+
+.heroHeart{
+
+    font-size:80px;
+
+    animation:
+        heartbeat
+        1.3s
+        infinite;
+
+    filter:
+        drop-shadow(
+            0 0 20px
+            #ff1744
+        );
+}
+
+
+.hero h1{
+
+    font-family:
+        'Great Vibes',
+        cursive;
+
+    font-size:
+        clamp(
+            60px,
+            12vw,
+            115px
+        );
+
+    color:white;
+
+    text-shadow:
+        0 0 10px #ff1744,
+        0 0 25px #ff1744,
+        0 0 50px #c2185b;
+
+    margin:10px 0;
+}
+
+
+.hero p{
+
+    max-width:700px;
+
+    line-height:1.8;
+
+    color:#ffe8ef;
+
+    font-size:17px;
+}
+
+
+.forever{
+
+    margin-top:25px;
+
+    letter-spacing:4px;
+
+    color:white;
+
+    text-shadow:
+        0 0 10px #ff1744;
+}
+
+
+/* =========================
+   SECTIONS
+========================= */
+
+.section{
+
+    width:92%;
+
+    max-width:950px;
+
+    margin:80px auto;
+
+    position:relative;
+
+    z-index:5;
+}
+
+
+.title{
+
+    text-align:center;
+
+    font-family:
+        'Great Vibes',
+        cursive;
+
+    font-size:58px;
+
+    color:white;
+
+    text-shadow:
+        0 0 10px #ff1744,
+        0 0 25px #c2185b;
+
+    margin-bottom:30px;
+}
+
+
+/* =========================
+   LOVE MESSAGE
+========================= */
+
+.loveCard{
+
+    padding:35px;
+
+    background:
+        rgba(255,255,255,0.13);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.3);
+
+    border-radius:30px;
+
+    backdrop-filter:blur(15px);
+
+    box-shadow:
+        0 0 40px
+        rgba(120,0,40,0.35);
+}
+
+
+.loveCard p{
+
+    font-family:
+        'Noto Serif Bengali',
+        serif;
+
+    font-size:19px;
+
+    line-height:2;
+
+    color:#fff4f8;
+
+    margin-bottom:22px;
+}
+
+
+/* =========================
+   GALLERY
+========================= */
+
+.gallery{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:18px;
+}
+
+
+.photo{
+
+    aspect-ratio:1/1;
+
+    overflow:hidden;
+
+    border-radius:22px;
+
+    border:
+        2px solid
+        rgba(255,255,255,0.35);
+
+    cursor:pointer;
+
+    transition:0.4s;
+
+    box-shadow:
+        0 10px 30px
+        rgba(70,0,20,0.4);
+}
+
+
+.photo img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    transition:0.5s;
+}
+
+
+.photo:hover{
+
+    transform:
+        translateY(-8px)
+        scale(1.02);
+
+    box-shadow:
+        0 15px 40px
+        rgba(255,0,80,0.55);
+}
+
+
+.photo:hover img{
+
+    transform:scale(1.08);
+}
+
+
+/* =========================
+   QUOTE
+========================= */
+
+.quote{
+
+    text-align:center;
+
+    font-family:
+        'Great Vibes',
+        cursive;
+
+    font-size:55px;
+
+    line-height:1.5;
+
+    color:white;
+
+    text-shadow:
+        0 0 10px #ff1744,
+        0 0 20px #c2185b;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+
+    text-align:center;
+
+    padding:60px 20px;
+
+    color:#ffe4ed;
+
+    position:relative;
+
+    z-index:5;
+}
+
+
+.footerHeart{
+
+    font-size:50px;
+
+    animation:
+        heartbeat
+        1.3s
+        infinite;
+
+    margin-bottom:15px;
+}
+
+
+/* =========================
+   FLOATING HEARTS
+========================= */
+
+.heart{
+
+    position:fixed;
+
+    bottom:-50px;
+
+    z-index:50;
+
+    pointer-events:none;
+
+    animation:
+        floatHeart
+        linear
+        forwards;
+
+    filter:
+        drop-shadow(
+            0 0 7px
+            #ff1744
+        );
+}
+
+
+@keyframes floatHeart{
+
+    0%{
+
+        transform:
+            translateY(0)
+            rotate(0deg)
+            scale(.7);
+
+        opacity:0;
+    }
+
+    10%{
+
+        opacity:1;
+    }
+
+    100%{
+
+        transform:
+            translateY(-110vh)
+            rotate(360deg)
+            scale(1.5);
+
+        opacity:0;
+    }
+}
+
+
+/* =========================
+   HEARTBEAT
+========================= */
+
+@keyframes heartbeat{
+
+    0%,100%{
+
+        transform:scale(1);
+    }
+
+    50%{
+
+        transform:scale(1.18);
+    }
+}
+
+
+/* =========================
+   IMAGE MODAL
+========================= */
+
+#modal{
+
+    display:none;
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:1000;
+
+    background:
+        rgba(30,0,10,0.93);
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:20px;
+}
+
+
+#modal img{
+
+    max-width:95%;
+
+    max-height:90vh;
+
+    border-radius:20px;
+
+    border:
+        2px solid
+        #ff80ab;
+
+    box-shadow:
+        0 0 50px
+        #ff1744;
+}
+
+
+.close{
+
+    position:absolute;
+
+    top:15px;
+
+    right:25px;
+
+    font-size:45px;
+
+    color:white;
+
+    cursor:pointer;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:600px){
+
+    nav{
+
+        padding:12px 15px;
+    }
+
+    .logo{
+
+        font-size:27px;
+    }
+
+    .musicButton{
+
+        font-size:12px;
+
+        padding:8px 12px;
+    }
+
+    .hero{
+
+        min-height:85vh;
+    }
+
+    .heroHeart{
+
+        font-size:55px;
+    }
+
+    .hero p{
+
+        font-size:14px;
+    }
+
+    .section{
+
+        margin:55px auto;
+    }
+
+    .title{
+
+        font-size:45px;
+    }
+
+    .loveCard{
+
+        padding:22px;
+    }
+
+    .loveCard p{
+
+        font-size:16px;
+
+        line-height:1.9;
+    }
+
+    .gallery{
+
+        grid-template-columns:
+            repeat(2,1fr);
+
+        gap:10px;
+    }
+
+    .photo{
+
+        border-radius:15px;
+    }
+
+    .quote{
+
+        font-size:38px;
+    }
+
+}
+
+
+@media(max-width:360px){
+
+    .gallery{
+
+        grid-template-columns:1fr;
+    }
+
+    .loginBox{
+
+        padding:30px 20px;
+    }
+
+    .loginTitle{
+
+        font-size:45px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     LOGIN PAGE
+===================================================== -->
+
+<div id="loginPage">
+
+    <div class="loginBox">
+
+        <div class="loginHeart">
+            ❤️
+        </div>
+
+        <div class="loginTitle">
+            RUDRA & KOYEL
+        </div>
+
+        <div class="loginText">
+            Our Little Love Story 🌹
+        </div>
+
+
+        <input
+            type="text"
+            id="username"
+            class="input"
+            placeholder="Enter Username"
+        >
+
+
+        <input
+            type="password"
+            id="password"
+            class="input"
+            placeholder="Enter Password"
+        >
+
+
+        <button
+            class="loginButton"
+            onclick="login()"
+        >
+            Enter Our Love Story ❤️
+        </button>
+
+
+        <div id="error">
+            Wrong Username or Password 💔
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     MAIN WEBSITE
+===================================================== -->
+
+<div id="mainPage">
+
+
+    <!-- =================================================
+         MUSIC
+    ================================================== -->
+
+    <audio id="music" loop>
+        <source
+            src="romantic.mp3.mpeg"
+            type="audio/mpeg"
+        >
+    </audio>
+
+
+    <!-- =================================================
+         NAVBAR
+    ================================================== -->
+
+    <nav>
+
+        <div class="logo">
+            RUDRA ❤️ KOYEL
+        </div>
+
+
+        <button
+            class="musicButton"
+            onclick="musicControl()"
+            id="musicButton"
+        >
+            🎵 Play Song
+        </button>
+
+    </nav>
+
+
+
+    <!-- =================================================
+         HERO
+    ================================================== -->
+
+    <section class="hero">
+
+        <div class="heroHeart">
+            ❤️
+        </div>
+
+
+        <h1>
+            RUDRA ❤️ KOYEL
+        </h1>
+
+
+        <p>
+
+            Two Hearts • One Love • One Forever
+
+            <br>
+
+            আমাদের ভালোবাসার গল্প ❤️
+
+        </p>
+
+
+        <div class="forever">
+
+            FOREVER & ALWAYS ♾️
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         LOVE MESSAGE
+    ================================================== -->
+
+    <section class="section">
+
+        <div class="title">
+            My Love For You 💌
+        </div>
+
+
+        <div class="loveCard">
+
+            <p>
+                তুমি জানো, তোমাকে আমি কতটা ভালোবাসি সেটা হয়তো
+                কথায় কখনো বোঝাতে পারব না। ❤️ তুমি শুধু আমার ভালোবাসা নও,
+                তুমি আমার শান্তি, আমার হাসির কারণ, আমার সবচেয়ে প্রিয় মানুষ।
+                তোমার সাথে কথা বললেই মনটা ভালো হয়ে যায়, আর তোমার একটা হাসি
+                আমার পুরো দিনটা সুন্দর করে দেয়। 🥹❤️
+            </p>
+
+
+            <p>
+                আমি চাই, জীবনের প্রতিটা সুন্দর মুহূর্ত তোমার হাত ধরে কাটাতে।
+                ঝগড়া হোক, অভিমান হোক, যতই কিছু হোক—শেষে যেন আমরা দুজন
+                দুজনের কাছেই ফিরে আসি। 🫶
+            </p>
+
+
+            <p>
+                শুধু একটা কথা মনে রেখো—আমি তোমাকে আজ যতটা ভালোবাসি,
+                আগামীকাল তার থেকেও একটু বেশি ভালোবাসব। ❤️🌹
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         PHOTO GALLERY
+    ================================================== -->
+
+    <section class="section">
+
+        <div class="title">
+            Our Memories 📸
+        </div>
+
+
+        <div class="gallery">
+
+
+            <div class="photo">
+                <img
+                    src="couple1.jpeg"
+                    onclick="showImage(this.src)"
+                >
+            </div>
+
+
+            <div class="photo">
+                <img
+                    src="couple2.jpeg"
+                    onclick="showImage(this.src)"
+                >
+            </div>
+
+
+            <div class="photo">
+                <img
+                    src="couple3.jpeg"
+                    onclick="showImage(this.src)"
+                >
+            </div>
+
+
+            <div class="photo">
+                <img
+                    src="couple4.jpeg"
+                    onclick="showImage(this.src)"
+                >
+            </div>
+
+
+            <div class="photo">
+                <img
+                    src="couple5.jpeg"
+                    onclick="showImage(this.src)"
+                >
+            </div>
+
+
+            <div class="photo">
+                <img
+                    src="couple6.jpeg"
+                    onclick="showImage(this.src)"
+                >
+            </div>
+
+
+            <div class="photo">
+                <img
+                    src="couple7.jpeg"
+                    onclick="showImage(this.src)"
+                >
+            </div>
+
+
+            <div class="photo">
+                <img
+                    src="couple8.jpeg"
+                    onclick="showImage(this.src)"
+                >
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         ROMANTIC QUOTE
+    ================================================== -->
+
+    <section class="section">
+
+        <div class="quote">
+
+            "তুমি পাশে থাকলে,
+            সাধারণ একটা দিনও
+            আমার কাছে সুন্দর হয়ে যায়।" ❤️
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         FINAL
+    ================================================== -->
+
+    <section class="section">
+
+        <div
+            class="loveCard"
+            style="text-align:center;"
+        >
+
+            <div class="title">
+                Forever Yours ❤️
+            </div>
+
+
+            <p style="text-align:center;">
+
+                RUDRA ❤️ KOYEL
+
+                <br><br>
+
+                একসাথে আজ, কাল এবং সারাজীবন... ♾️
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         FOOTER
+    ================================================== -->
+
+    <footer>
+
+        <div class="footerHeart">
+            ❤️
+        </div>
+
+
+        <p>
+            Made with endless love by RUDRA
+        </p>
+
+
+        <p>
+            For my beautiful KOYEL 🌹
+        </p>
+
+    </footer>
+
+</div>
+
+
+
+<!-- =====================================================
+     IMAGE MODAL
+===================================================== -->
+
+<div
+    id="modal"
+    onclick="closeImage()"
+>
+
+    <span class="close">
+        ×
+    </span>
+
+
+    <img id="modalImage">
+
+</div>
+
+
+
+<script>
+
+
+/* =====================================================
+   LOGIN
+===================================================== */
+
+function login(){
+
+    const username =
+        document
+        .getElementById("username")
+        .value
+        .trim();
+
+    const password =
+        document
+        .getElementById("password")
+        .value
+        .trim();
+
+
+    /*
+       USERNAME = RUDRA
+       PASSWORD = KOYEL
+    */
+
+
+    if(
+        username.toUpperCase() === "RUDRA"
+        &&
+        password.toUpperCase() === "KOYEL"
+    ){
+
+        document
+        .getElementById("loginPage")
+        .style.display = "none";
+
+
+        document
+        .getElementById("mainPage")
+        .style.display = "block";
+
+
+        startHearts();
+
+
+        const music =
+            document.getElementById("music");
+
+
+        /*
+           Start music after login.
+           Some browsers may block
+           automatic audio, so the
+           Play Song button remains.
+        */
+
+        music.play()
+        .then(function(){
+
+            document
+            .getElementById("musicButton")
+            .innerHTML =
+            "🔊 Song Playing";
+
+        })
+        .catch(function(){
+
+            document
+            .getElementById("musicButton")
+            .innerHTML =
+            "🎵 Play Song";
+
+        });
+
+    }
+
+    else{
+
+        document
+        .getElementById("error")
+        .style.display = "block";
+
+    }
+
+}
+
+
+/* =====================================================
+   ENTER KEY
+===================================================== */
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(event.key === "Enter"){
+
+            if(
+                document
+                .getElementById("loginPage")
+                .style.display !== "none"
+            ){
+
+                login();
+
+            }
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   MUSIC CONTROL
+===================================================== */
+
+function musicControl(){
+
+    const music =
+        document.getElementById("music");
+
+    const button =
+        document.getElementById("musicButton");
+
+
+    if(music.paused){
+
+        music.play();
+
+        button.innerHTML =
+            "🔊 Song Playing";
+
+    }
+
+    else{
+
+        music.pause();
+
+        button.innerHTML =
+            "🎵 Play Song";
+
+    }
+
+}
+
+
+/* =====================================================
+   FLOATING HEARTS
+===================================================== */
+
+function createHeart(){
+
+    const heart =
+        document.createElement("div");
+
+
+    heart.className =
+        "heart";
+
+
+    const emojis = [
+
+        "❤️",
+        "💖",
+        "💕",
+        "💗",
+        "💓",
+        "💘",
+        "💝",
+        "🌹"
+
+    ];
+
+
+    heart.innerHTML =
+        emojis[
+            Math.floor(
+                Math.random()
+                * emojis.length
+            )
+        ];
+
+
+    heart.style.left =
+        Math.random() * 100 + "vw";
+
+
+    heart.style.fontSize =
+        (15 + Math.random() * 25)
+        + "px";
+
+
+    heart.style.animationDuration =
+        (5 + Math.random() * 7)
+        + "s";
+
+
+    document.body.appendChild(heart);
+
+
+    setTimeout(
+        function(){
+
+            heart.remove();
+
+        },
+        12000
+    );
+
+}
+
+
+function startHearts(){
+
+    setInterval(
+        createHeart,
+        400
+    );
+
+}
+
+
+/* =====================================================
+   IMAGE VIEWER
+===================================================== */
+
+function showImage(src){
+
+    document
+    .getElementById("modalImage")
+    .src = src;
+
+
+    document
+    .getElementById("modal")
+    .style.display = "flex";
+
+}
+
+
+function closeImage(){
+
+    document
+    .getElementById("modal")
+    .style.display = "none";
+
+}
+
+</script>
+
+
+</body>
+</html>
