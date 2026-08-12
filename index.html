@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -9,7 +8,16 @@
 
 <style>
 
-@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;500;600&family=Noto+Serif+Bengali:wght@400;500&display=swap');
+/* =========================
+   FONTS
+========================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;500;600;700&family=Noto+Serif+Bengali:wght@400;500;600&display=swap');
+
+
+/* =========================
+   BASIC
+========================= */
 
 *{
     margin:0;
@@ -25,114 +33,185 @@ body{
     font-family:'Poppins',sans-serif;
     color:white;
     overflow-x:hidden;
-
-    background:
-    radial-gradient(circle at 10% 20%,#ffb6d0,transparent 30%),
-    radial-gradient(circle at 90% 80%,#b0003a,transparent 35%),
-    linear-gradient(135deg,#ff1744,#ff4081,#c2185b,#88002f);
-
-    background-size:200% 200%;
-    animation:bgAnimation 12s ease infinite;
 }
 
 
-/* ================= BACKGROUND ================= */
+/* =========================
+   PINK + RED ANIMATED
+   BACKGROUND
+========================= */
 
-@keyframes bgAnimation{
+#loginPage,
+#mainPage{
+
+    background:
+        radial-gradient(
+            circle at 10% 15%,
+            #ffb6d0 0%,
+            transparent 28%
+        ),
+
+        radial-gradient(
+            circle at 90% 20%,
+            #ff1744 0%,
+            transparent 32%
+        ),
+
+        radial-gradient(
+            circle at 20% 90%,
+            #c2185b 0%,
+            transparent 38%
+        ),
+
+        radial-gradient(
+            circle at 90% 90%,
+            #ff80ab 0%,
+            transparent 35%
+        ),
+
+        linear-gradient(
+            135deg,
+            #65001f,
+            #a9003d,
+            #ff1744,
+            #e91e63,
+            #ff4081,
+            #7b002b
+        );
+
+    background-size:300% 300%;
+
+    animation:
+        romanticBackground
+        12s
+        ease-in-out
+        infinite;
+}
+
+
+@keyframes romanticBackground{
 
     0%{
         background-position:0% 50%;
+    }
+
+    25%{
+        background-position:50% 100%;
     }
 
     50%{
         background-position:100% 50%;
     }
 
+    75%{
+        background-position:50% 0%;
+    }
+
     100%{
         background-position:0% 50%;
     }
-
 }
 
 
-/* ================= LOGIN ================= */
+/* =========================
+   LOGIN PAGE
+========================= */
 
 #loginPage{
 
     min-height:100vh;
 
     display:flex;
+
     justify-content:center;
+
     align-items:center;
 
     padding:20px;
 
     position:relative;
+
     overflow:hidden;
-
-    background:
-    radial-gradient(circle at 10% 20%,#ffb6d0,transparent 30%),
-    radial-gradient(circle at 90% 80%,#b0003a,transparent 35%),
-    linear-gradient(135deg,#ff1744,#ff4081,#c2185b,#88002f);
-
-    background-size:200% 200%;
-
-    animation:bgAnimation 12s ease infinite;
 }
 
 
 .loginBox{
 
     width:100%;
+
     max-width:400px;
 
     padding:40px 30px;
 
     text-align:center;
 
-    background:rgba(255,255,255,0.14);
+    background:
+        rgba(255,255,255,0.14);
 
-    border:1px solid rgba(255,255,255,0.3);
+    border:
+        1px solid
+        rgba(255,255,255,0.35);
 
     backdrop-filter:blur(20px);
 
     border-radius:30px;
 
     box-shadow:
-    0 0 40px rgba(255,0,80,0.4),
-    inset 0 0 30px rgba(255,255,255,0.08);
+        0 0 50px
+        rgba(255,0,80,0.45),
+
+        inset 0 0 30px
+        rgba(255,255,255,0.08);
+
+    position:relative;
+
+    z-index:10;
 }
 
 
 .loginHeart{
 
-    font-size:65px;
+    font-size:70px;
 
-    animation:heartbeat 1.2s infinite;
+    animation:
+        heartbeat
+        1.2s
+        infinite;
+
+    filter:
+        drop-shadow(
+            0 0 15px
+            #ff1744
+        );
 }
 
 
 .loginTitle{
 
-    font-family:'Great Vibes',cursive;
+    font-family:
+        'Great Vibes',
+        cursive;
 
     font-size:55px;
+
+    margin:10px 0;
 
     color:white;
 
     text-shadow:
-    0 0 10px #ff1744,
-    0 0 25px #ff1744;
-
-    margin:10px 0;
+        0 0 10px #ff1744,
+        0 0 25px #ff1744,
+        0 0 45px #c2185b;
 }
 
 
 .loginText{
 
-    color:#ffe4ed;
+    color:#ffe5ee;
 
     margin-bottom:25px;
+
+    font-size:14px;
 }
 
 
@@ -150,19 +229,24 @@ body{
 
     border-radius:15px;
 
-    background:rgba(255,255,255,0.15);
+    background:
+        rgba(255,255,255,0.16);
 
     color:white;
 
     text-align:center;
 
     font-size:15px;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.2);
 }
 
 
 .input::placeholder{
 
-    color:#ffe0eb;
+    color:#ffe1eb;
 }
 
 
@@ -179,7 +263,12 @@ body{
     border-radius:15px;
 
     background:
-    linear-gradient(45deg,#d50045,#ff1744,#ff4081);
+        linear-gradient(
+            45deg,
+            #b0003a,
+            #ff1744,
+            #ff4081
+        );
 
     color:white;
 
@@ -189,16 +278,23 @@ body{
 
     cursor:pointer;
 
-    box-shadow:0 8px 25px rgba(255,0,80,0.5);
+    box-shadow:
+        0 8px 25px
+        rgba(255,0,80,0.5);
 
-    transition:.3s;
+    transition:0.3s;
 }
 
 
 .loginButton:hover{
 
-    transform:translateY(-3px);
+    transform:
+        translateY(-3px)
+        scale(1.02);
 
+    box-shadow:
+        0 12px 35px
+        rgba(255,0,80,0.7);
 }
 
 
@@ -212,7 +308,9 @@ body{
 }
 
 
-/* ================= MAIN PAGE ================= */
+/* =========================
+   MAIN PAGE
+========================= */
 
 #mainPage{
 
@@ -220,25 +318,15 @@ body{
 
     min-height:100vh;
 
-    background:
-    radial-gradient(circle at 10% 10%,#ff80ab,transparent 28%),
-    radial-gradient(circle at 90% 90%,#c2185b,transparent 35%),
-    linear-gradient(
-        135deg,
-        #4a0019,
-        #8e0038,
-        #d81b60,
-        #ff4081,
-        #7b002b
-    );
+    position:relative;
 
-    background-size:300% 300%;
-
-    animation:bgAnimation 15s ease infinite;
+    overflow:hidden;
 }
 
 
-/* ================= NAVBAR ================= */
+/* =========================
+   NAVBAR
+========================= */
 
 nav{
 
@@ -256,23 +344,30 @@ nav{
 
     padding:15px 25px;
 
-    background:rgba(80,0,25,0.65);
+    background:
+        rgba(70,0,25,0.65);
 
     backdrop-filter:blur(15px);
 
-    border-bottom:1px solid rgba(255,255,255,0.2);
+    border-bottom:
+        1px solid
+        rgba(255,255,255,0.2);
 }
 
 
 .logo{
 
-    font-family:'Great Vibes',cursive;
+    font-family:
+        'Great Vibes',
+        cursive;
 
-    font-size:34px;
+    font-size:35px;
 
     color:white;
 
-    text-shadow:0 0 10px #ff1744;
+    text-shadow:
+        0 0 10px #ff1744,
+        0 0 20px #ff4081;
 }
 
 
@@ -280,29 +375,35 @@ nav{
 
     padding:10px 17px;
 
-    border:1px solid rgba(255,255,255,0.5);
+    border:
+        1px solid
+        rgba(255,255,255,0.5);
 
     border-radius:25px;
 
-    background:rgba(255,255,255,0.12);
+    background:
+        rgba(255,255,255,0.12);
 
     color:white;
 
     cursor:pointer;
 
-    transition:.3s;
+    transition:0.3s;
 }
 
 
 .musicButton:hover{
 
-    background:rgba(255,255,255,0.25);
+    background:
+        rgba(255,255,255,0.25);
 
     transform:scale(1.05);
 }
 
 
-/* ================= HERO ================= */
+/* =========================
+   HERO
+========================= */
 
 .hero{
 
@@ -319,31 +420,49 @@ nav{
     text-align:center;
 
     padding:30px 20px;
+
+    position:relative;
+
+    z-index:5;
 }
 
 
 .heroHeart{
 
-    font-size:75px;
+    font-size:80px;
 
-    animation:heartbeat 1.3s infinite;
+    animation:
+        heartbeat
+        1.3s
+        infinite;
 
-    filter:drop-shadow(0 0 15px #ff1744);
+    filter:
+        drop-shadow(
+            0 0 20px
+            #ff1744
+        );
 }
 
 
 .hero h1{
 
-    font-family:'Great Vibes',cursive;
+    font-family:
+        'Great Vibes',
+        cursive;
 
-    font-size:clamp(60px,12vw,115px);
+    font-size:
+        clamp(
+            60px,
+            12vw,
+            115px
+        );
 
     color:white;
 
     text-shadow:
-    0 0 10px #ff1744,
-    0 0 25px #ff1744,
-    0 0 50px #c2185b;
+        0 0 10px #ff1744,
+        0 0 25px #ff1744,
+        0 0 50px #c2185b;
 
     margin:10px 0;
 }
@@ -368,10 +487,15 @@ nav{
     letter-spacing:4px;
 
     color:white;
+
+    text-shadow:
+        0 0 10px #ff1744;
 }
 
 
-/* ================= SECTION ================= */
+/* =========================
+   SECTIONS
+========================= */
 
 .section{
 
@@ -380,6 +504,10 @@ nav{
     max-width:950px;
 
     margin:80px auto;
+
+    position:relative;
+
+    z-index:5;
 }
 
 
@@ -387,59 +515,73 @@ nav{
 
     text-align:center;
 
-    font-family:'Great Vibes',cursive;
+    font-family:
+        'Great Vibes',
+        cursive;
 
     font-size:58px;
 
     color:white;
 
     text-shadow:
-    0 0 10px #ff1744,
-    0 0 25px #c2185b;
+        0 0 10px #ff1744,
+        0 0 25px #c2185b;
 
     margin-bottom:30px;
 }
 
 
-/* ================= LOVE CARD ================= */
+/* =========================
+   LOVE MESSAGE
+========================= */
 
 .loveCard{
 
     padding:35px;
 
-    background:rgba(255,255,255,0.12);
+    background:
+        rgba(255,255,255,0.13);
 
-    border:1px solid rgba(255,255,255,0.3);
+    border:
+        1px solid
+        rgba(255,255,255,0.3);
 
     border-radius:30px;
 
     backdrop-filter:blur(15px);
 
-    box-shadow:0 0 40px rgba(150,0,50,0.3);
+    box-shadow:
+        0 0 40px
+        rgba(120,0,40,0.35);
 }
 
 
 .loveCard p{
 
-    font-family:'Noto Serif Bengali',serif;
+    font-family:
+        'Noto Serif Bengali',
+        serif;
 
     font-size:19px;
 
     line-height:2;
 
-    color:#fff3f7;
+    color:#fff4f8;
 
     margin-bottom:22px;
 }
 
 
-/* ================= GALLERY ================= */
+/* =========================
+   GALLERY
+========================= */
 
 .gallery{
 
     display:grid;
 
-    grid-template-columns:repeat(2,1fr);
+    grid-template-columns:
+        repeat(2,1fr);
 
     gap:18px;
 }
@@ -453,13 +595,17 @@ nav{
 
     border-radius:22px;
 
-    border:2px solid rgba(255,255,255,0.3);
+    border:
+        2px solid
+        rgba(255,255,255,0.35);
 
     cursor:pointer;
 
-    transition:.4s;
+    transition:0.4s;
 
-    box-shadow:0 10px 30px rgba(70,0,20,0.4);
+    box-shadow:
+        0 10px 30px
+        rgba(70,0,20,0.4);
 }
 
 
@@ -471,15 +617,19 @@ nav{
 
     object-fit:cover;
 
-    transition:.5s;
+    transition:0.5s;
 }
 
 
 .photo:hover{
 
-    transform:translateY(-8px) scale(1.02);
+    transform:
+        translateY(-8px)
+        scale(1.02);
 
-    box-shadow:0 15px 40px rgba(255,0,80,0.5);
+    box-shadow:
+        0 15px 40px
+        rgba(255,0,80,0.55);
 }
 
 
@@ -489,13 +639,17 @@ nav{
 }
 
 
-/* ================= QUOTE ================= */
+/* =========================
+   QUOTE
+========================= */
 
 .quote{
 
     text-align:center;
 
-    font-family:'Great Vibes',cursive;
+    font-family:
+        'Great Vibes',
+        cursive;
 
     font-size:55px;
 
@@ -503,11 +657,15 @@ nav{
 
     color:white;
 
-    text-shadow:0 0 10px #ff1744;
+    text-shadow:
+        0 0 10px #ff1744,
+        0 0 20px #c2185b;
 }
 
 
-/* ================= FOOTER ================= */
+/* =========================
+   FOOTER
+========================= */
 
 footer{
 
@@ -516,6 +674,10 @@ footer{
     padding:60px 20px;
 
     color:#ffe4ed;
+
+    position:relative;
+
+    z-index:5;
 }
 
 
@@ -523,13 +685,18 @@ footer{
 
     font-size:50px;
 
-    animation:heartbeat 1.3s infinite;
+    animation:
+        heartbeat
+        1.3s
+        infinite;
 
     margin-bottom:15px;
 }
 
 
-/* ================= FLOATING HEARTS ================= */
+/* =========================
+   FLOATING HEARTS
+========================= */
 
 .heart{
 
@@ -541,9 +708,16 @@ footer{
 
     pointer-events:none;
 
-    animation:floatHeart linear forwards;
+    animation:
+        floatHeart
+        linear
+        forwards;
 
-    filter:drop-shadow(0 0 5px #ff1744);
+    filter:
+        drop-shadow(
+            0 0 7px
+            #ff1744
+        );
 }
 
 
@@ -552,9 +726,9 @@ footer{
     0%{
 
         transform:
-        translateY(0)
-        rotate(0deg)
-        scale(.7);
+            translateY(0)
+            rotate(0deg)
+            scale(.7);
 
         opacity:0;
     }
@@ -567,16 +741,18 @@ footer{
     100%{
 
         transform:
-        translateY(-110vh)
-        rotate(360deg)
-        scale(1.5);
+            translateY(-110vh)
+            rotate(360deg)
+            scale(1.5);
 
         opacity:0;
     }
 }
 
 
-/* ================= HEARTBEAT ================= */
+/* =========================
+   HEARTBEAT
+========================= */
 
 @keyframes heartbeat{
 
@@ -592,7 +768,9 @@ footer{
 }
 
 
-/* ================= IMAGE MODAL ================= */
+/* =========================
+   IMAGE MODAL
+========================= */
 
 #modal{
 
@@ -604,7 +782,8 @@ footer{
 
     z-index:1000;
 
-    background:rgba(30,0,10,0.92);
+    background:
+        rgba(30,0,10,0.93);
 
     justify-content:center;
 
@@ -622,9 +801,13 @@ footer{
 
     border-radius:20px;
 
-    border:2px solid #ff80ab;
+    border:
+        2px solid
+        #ff80ab;
 
-    box-shadow:0 0 50px #ff1744;
+    box-shadow:
+        0 0 50px
+        #ff1744;
 }
 
 
@@ -644,7 +827,9 @@ footer{
 }
 
 
-/* ================= MOBILE ================= */
+/* =========================
+   MOBILE
+========================= */
 
 @media(max-width:600px){
 
@@ -704,7 +889,8 @@ footer{
 
     .gallery{
 
-        grid-template-columns:repeat(2,1fr);
+        grid-template-columns:
+            repeat(2,1fr);
 
         gap:10px;
     }
@@ -742,7 +928,6 @@ footer{
 }
 
 </style>
-
 </head>
 
 
@@ -811,14 +996,21 @@ footer{
 <div id="mainPage">
 
 
-    <!-- ================= MUSIC ================= -->
+    <!-- =================================================
+         MUSIC
+    ================================================== -->
 
     <audio id="music" loop>
-        <source src="romantic.mp3" type="audio/mpeg">
+        <source
+            src="romantic.mp3.mpeg"
+            type="audio/mpeg"
+        >
     </audio>
 
 
-    <!-- ================= NAVBAR ================= -->
+    <!-- =================================================
+         NAVBAR
+    ================================================== -->
 
     <nav>
 
@@ -839,7 +1031,9 @@ footer{
 
 
 
-    <!-- ================= HERO ================= -->
+    <!-- =================================================
+         HERO
+    ================================================== -->
 
     <section class="hero">
 
@@ -874,7 +1068,9 @@ footer{
 
 
 
-    <!-- ================= LOVE MESSAGE ================= -->
+    <!-- =================================================
+         LOVE MESSAGE
+    ================================================== -->
 
     <section class="section">
 
@@ -912,7 +1108,9 @@ footer{
 
 
 
-    <!-- ================= PHOTO GALLERY ================= -->
+    <!-- =================================================
+         PHOTO GALLERY
+    ================================================== -->
 
     <section class="section">
 
@@ -925,82 +1123,66 @@ footer{
 
 
             <div class="photo">
-
                 <img
                     src="couple1.jpeg"
                     onclick="showImage(this.src)"
                 >
-
             </div>
 
 
             <div class="photo">
-
                 <img
                     src="couple2.jpeg"
                     onclick="showImage(this.src)"
                 >
-
             </div>
 
 
             <div class="photo">
-
                 <img
                     src="couple3.jpeg"
                     onclick="showImage(this.src)"
                 >
-
             </div>
 
 
             <div class="photo">
-
                 <img
                     src="couple4.jpeg"
                     onclick="showImage(this.src)"
                 >
-
             </div>
 
 
             <div class="photo">
-
                 <img
                     src="couple5.jpeg"
                     onclick="showImage(this.src)"
                 >
-
             </div>
 
 
             <div class="photo">
-
                 <img
                     src="couple6.jpeg"
                     onclick="showImage(this.src)"
                 >
-
             </div>
 
 
             <div class="photo">
-
                 <img
                     src="couple7.jpeg"
                     onclick="showImage(this.src)"
                 >
-
             </div>
 
 
             <div class="photo">
-
                 <img
                     src="couple8.jpeg"
                     onclick="showImage(this.src)"
                 >
-
             </div>
 
 
@@ -1010,7 +1192,9 @@ footer{
 
 
 
-    <!-- ================= QUOTE ================= -->
+    <!-- =================================================
+         ROMANTIC QUOTE
+    ================================================== -->
 
     <section class="section">
 
@@ -1026,12 +1210,16 @@ footer{
 
 
 
-    <!-- ================= FINAL ================= -->
+    <!-- =================================================
+         FINAL
+    ================================================== -->
 
     <section class="section">
 
-        <div class="loveCard"
-             style="text-align:center;">
+        <div
+            class="loveCard"
+            style="text-align:center;"
+        >
 
             <div class="title">
                 Forever Yours ❤️
@@ -1054,7 +1242,9 @@ footer{
 
 
 
-    <!-- ================= FOOTER ================= -->
+    <!-- =================================================
+         FOOTER
+    ================================================== -->
 
     <footer>
 
@@ -1074,12 +1264,13 @@ footer{
 
     </footer>
 
-
 </div>
 
 
 
-<!-- ================= IMAGE MODAL ================= -->
+<!-- =====================================================
+     IMAGE MODAL
+===================================================== -->
 
 <div
     id="modal"
@@ -1106,55 +1297,70 @@ footer{
 
 function login(){
 
-    let username =
-        document.getElementById("username").value.trim();
+    const username =
+        document
+        .getElementById("username")
+        .value
+        .trim();
 
-    let password =
-        document.getElementById("password").value.trim();
+    const password =
+        document
+        .getElementById("password")
+        .value
+        .trim();
 
 
     /*
-
-       USERNAME: RUDRA
-       PASSWORD: KOYEL
-
+       USERNAME = RUDRA
+       PASSWORD = KOYEL
     */
 
 
     if(
-
         username.toUpperCase() === "RUDRA"
-
         &&
-
         password.toUpperCase() === "KOYEL"
-
     ){
 
-        document.getElementById("loginPage").style.display =
-            "none";
+        document
+        .getElementById("loginPage")
+        .style.display = "none";
 
 
-        document.getElementById("mainPage").style.display =
-            "block";
+        document
+        .getElementById("mainPage")
+        .style.display = "block";
 
 
         startHearts();
 
 
-        let music =
+        const music =
             document.getElementById("music");
 
 
-        music.play().then(function(){
+        /*
+           Start music after login.
+           Some browsers may block
+           automatic audio, so the
+           Play Song button remains.
+        */
 
-            document.getElementById("musicButton").innerHTML =
-                "🔊 Song Playing";
+        music.play()
+        .then(function(){
 
-        }).catch(function(){
+            document
+            .getElementById("musicButton")
+            .innerHTML =
+            "🔊 Song Playing";
 
-            document.getElementById("musicButton").innerHTML =
-                "🎵 Play Song";
+        })
+        .catch(function(){
+
+            document
+            .getElementById("musicButton")
+            .innerHTML =
+            "🎵 Play Song";
 
         });
 
@@ -1162,35 +1368,39 @@ function login(){
 
     else{
 
-        document.getElementById("error").style.display =
-            "block";
+        document
+        .getElementById("error")
+        .style.display = "block";
 
     }
 
 }
 
 
-/* ================= ENTER KEY ================= */
+/* =====================================================
+   ENTER KEY
+===================================================== */
 
-document.addEventListener("keydown",function(event){
+document.addEventListener(
+    "keydown",
+    function(event){
 
-    if(event.key === "Enter"){
+        if(event.key === "Enter"){
 
-        if(
+            if(
+                document
+                .getElementById("loginPage")
+                .style.display !== "none"
+            ){
 
-            document.getElementById("loginPage").style.display
-            !==
-            "none"
+                login();
 
-        ){
-
-            login();
+            }
 
         }
 
     }
-
-});
+);
 
 
 /* =====================================================
@@ -1199,11 +1409,10 @@ document.addEventListener("keydown",function(event){
 
 function musicControl(){
 
-    let music =
+    const music =
         document.getElementById("music");
 
-
-    let button =
+    const button =
         document.getElementById("musicButton");
 
 
@@ -1234,7 +1443,7 @@ function musicControl(){
 
 function createHeart(){
 
-    let heart =
+    const heart =
         document.createElement("div");
 
 
@@ -1242,7 +1451,7 @@ function createHeart(){
         "heart";
 
 
-    let emojis = [
+    const emojis = [
 
         "❤️",
         "💖",
@@ -1259,7 +1468,8 @@ function createHeart(){
     heart.innerHTML =
         emojis[
             Math.floor(
-                Math.random() * emojis.length
+                Math.random()
+                * emojis.length
             )
         ];
 
@@ -1269,28 +1479,36 @@ function createHeart(){
 
 
     heart.style.fontSize =
-        (15 + Math.random() * 25) + "px";
+        (15 + Math.random() * 25)
+        + "px";
 
 
     heart.style.animationDuration =
-        (5 + Math.random() * 7) + "s";
+        (5 + Math.random() * 7)
+        + "s";
 
 
     document.body.appendChild(heart);
 
 
-    setTimeout(function(){
+    setTimeout(
+        function(){
 
-        heart.remove();
+            heart.remove();
 
-    },12000);
+        },
+        12000
+    );
 
 }
 
 
 function startHearts(){
 
-    setInterval(createHeart,400);
+    setInterval(
+        createHeart,
+        400
+    );
 
 }
 
@@ -1301,20 +1519,23 @@ function startHearts(){
 
 function showImage(src){
 
-    document.getElementById("modalImage").src =
-        src;
+    document
+    .getElementById("modalImage")
+    .src = src;
 
 
-    document.getElementById("modal").style.display =
-        "flex";
+    document
+    .getElementById("modal")
+    .style.display = "flex";
 
 }
 
 
 function closeImage(){
 
-    document.getElementById("modal").style.display =
-        "none";
+    document
+    .getElementById("modal")
+    .style.display = "none";
 
 }
 
